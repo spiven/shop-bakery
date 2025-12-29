@@ -6,6 +6,11 @@
     --color-secondary: #A18268;
 }
 
+/* Base */
+* {
+    box-sizing: border-box;
+}
+
 body {
     color: var(--color-primary-dark);
     background-color: var(--color-primary-light);
@@ -16,6 +21,11 @@ body {
     в дизайне - 27px, но рассчитывается из font-size: 27 / 18 = 1.5
     */
     line-height: 1.5;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin-top: 0;
 }
 
 h1 {
@@ -53,71 +63,189 @@ p {
 
 ul {
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 address {
     font-style: normal;
 }
 
-.button-order {
-    border: 2px solid var(--color-brand-light);
-    background: var(--color-brand-light);
-    border-radius: 8px;
-    padding: 16px 32px;
-    color: var(--color-primary-light);
-    cursor: pointer;
-    font-weight: 600;
+.v-hidden {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
 
-    &:hover {
-        background: transparent;
-        color: var(--color-brand-dark);
-    }
+.container {
+    width: 100%;
+    max-width: 1288px;
+    margin: 0 auto;
+    padding: 0 24px;
 }
 
 .header {
     color: var(--color-primary-light);
+    background-color: var(--color-brand-dark);
+
+    .header-container {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+
+        .header-nav {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .button-order {
+            border: 2px solid var(--color-brand-light);
+            background: var(--color-brand-light);
+            border-radius: 8px;
+            padding: 16px 32px;
+            color: var(--color-primary-light);
+            cursor: pointer;
+            font-weight: 600;
+
+            &:hover {
+                background: transparent;
+                color: var(--color-brand-dark);
+            }
+        }
+    }
 }
 
 .menu {
     a {
         text-decoration: none;
         color: var(--color-primary-light);
+
+        &:hover {
+            color: var(--color-brand-light);
+        }
     }
 
-    &:hover {
-        color: var(--color-brand-light);
-        font-weight: 600;
-    }
-}
-
-.main-title {
-    color: var(--color-primary-light);
-    font-weight: 900;
-    font-size: 128px;
-    text-align: center;
-
-    span {
-        color: var(--color-brand-light);
+    &.header-menu {
+        flex-grow: 1;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        gap: 64px;
     }
 }
 
-.advantages-list {
+.section {
+    padding: 48px 0;
+}
+
+.hero-section {
+    background-color: var(--color-primary-dark);
+    padding: 272px 0;
+
+    .hero-title {
+        color: var(--color-primary-light);
+        font-weight: 900;
+        font-size: 128px;
+        text-align: center;
+        margin-bottom: 0;
+
+        span {
+            color: var(--color-brand-light);
+        }
+    }
+}
+
+.section-advantages {
+    padding: 0;
     background-color: var(--color-brand-light);
     color: var(--color-primary-light);
-    font-size: 20px;
-    font-weight: 300;
+
+    .advantages-list {
+        font-size: 20px;
+        font-weight: 300;
+        padding: 16px 0;
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+    }
 }
 
-.format-card {
-    .format-title {
-        color: var(--color-primary-light);
-        font-weight: 600;
-        font-size: 24px;
+.section-traditions {
+    padding-top: 96px;
+    .section-title {
+        margin-bottom: 42px;
     }
 
-    .format-text {
-        font-weight: 300;
-        font-size: 14px;
+    .traditions-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+
+        .traditions-content {
+            max-width: 700px;
+            p.narrow {
+                max-width: 340px;
+            }
+        }
+    }
+}
+
+.section-chefs {
+    .section-title {
+        margin-bottom: 80px;
+    }
+
+    .chef-title {
+        margin-bottom: 16px;
+    }
+}
+
+.section-formats {
+    .section-title {
+        margin-bottom: 80px;
+    }
+
+    .formats-list {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+
+        .formats-item {
+            flex-basis: calc((100% - 40px) / 3);
+
+            .format-card {
+                background: var(--color-brand-dark);
+
+                border-radius: 16px;
+                padding: 24px;
+
+                .format-title {
+                    color: var(--color-primary-light);
+                    font-weight: 600;
+                    font-size: 24px;
+                }
+
+                .format-text {
+                    font-weight: 300;
+                    font-size: 14px;
+
+                    p {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.section-contacts {
+    .section-title {
+        margin-bottom: 16px;
     }
 }
 
